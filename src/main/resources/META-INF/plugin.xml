@@ -1,0 +1,57 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- 插件ID，保持唯一 -->
+    <id>com.spoonb.CodeMark</id>
+
+    <!-- 插件名称 -->
+    <name>CodeMark</name>
+
+    <!-- 提供方（作者）信息 -->
+    <vendor email="codemark@gmail.com" url="https://www.codemark.com">codemark</vendor>
+
+    <!-- 功能描述 -->
+    <description>
+    <![CDATA[
+        <h1>代码阅读笔记<h1>
+        需求：代码阅读时可以随时添加笔记并且可以生成MarkDown文档<br/>
+    ]]>
+    </description>
+
+    <!-- 更新日志(旧版本支持) -->
+<!--    <change-notes>-->
+<!--    <![CDATA[-->
+<!--        <h1>代码阅读笔记<h1>-->
+<!--        需求：代码阅读时可以随时添加笔记并且可以生成MarkDown文档<br/>-->
+<!--    ]]>-->
+<!--    </change-notes>-->
+
+    <!--
+        插件支持的版本(旧版本支持)
+        since-build：支持的最低版本
+        until-build：支持的最高版本
+    -->
+<!--    <idea-version since-build="241.1"/>-->
+
+    <!-- 依赖 -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <!-- 拓展 -->
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+        <toolWindow id="CodeMark"
+                    secondary="true"
+                    anchor="right"
+                    icon="/img/logo.svg"
+                    factoryClass="com.spoonb.noteflow.window.NoteListWindowFactory">
+        </toolWindow>
+    </extensions>
+
+    <!-- Action -->
+    <actions>
+        <action id="CodeMark" class="com.spoonb.noteflow.action.CodeMark" text="CodeMark"
+                description="阅读代码时可以给选中的文本添加笔记">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl M"/>
+        </action>
+    </actions>
+</idea-plugin>
