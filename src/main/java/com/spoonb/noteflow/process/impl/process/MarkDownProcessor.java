@@ -10,10 +10,8 @@ import freemarker.cache.StringTemplateLoader;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Writer;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -49,7 +47,8 @@ public class MarkDownProcessor extends TemplateProcessor {
         if (virtualFile != null) {
             String path = virtualFile.getPath();
             String fullPath = path + "/" + topic + ".md";
-            return new BufferedWriter(new FileWriter(fullPath));
+//            return new BufferedWriter(new FileWriter(fullPath));
+            return new BufferedWriter(new OutputStreamWriter(new FileOutputStream(fullPath), StandardCharsets.UTF_8));
         }
         return null;
     }

@@ -28,7 +28,7 @@ plugins {
 //apply(plugin = "org.jetbrains.intellij")
 
 group = "com.spoonb"
-version = "0.0.1"
+version = "0.0.2-alpha"
 
 repositories {
 //    maven {
